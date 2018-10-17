@@ -5,6 +5,7 @@
  * search method to perform the search itself.
  */
 public class KMP {
+	public boolean bruteForce = true;
 	public int[] table;
 
 	public KMP(String pattern, String text) {
@@ -19,7 +20,9 @@ public class KMP {
 		int pLength = pattern.length(); // pLength is also 'm' from lectures
 		int[] table = new int[pLength]; // table is matrix 'M' from lectures
 		table[0] = -1;
-		table[1] = 0;
+		if(pattern.length() > 1) {
+			table[1] = 0;
+		}
 		int idx = 0; // idx is also 'j' from lectures
 		int pos = 2;
 

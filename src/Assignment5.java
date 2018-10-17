@@ -185,7 +185,15 @@ public class Assignment5 {
 			public void actionPerformed(ActionEvent e) {
 				String pattern = searchField.getText();
 				String text = textEditor.getText();
-				int index = new KMP(pattern, text).search(pattern, text);
+				int index;
+				KMP k =  new KMP(pattern, text);
+				if (k.bruteForce) {
+					index = k.bruteForceSearch(pattern, text);
+				}
+				else {
+					index = k.search(pattern, text);
+				}
+				
 
 				if (index == -1) {
 					JOptionPane.showMessageDialog(frame, "Pattern not found.");
